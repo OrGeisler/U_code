@@ -1,0 +1,25 @@
+#parent {
+    display: inline-block;
+    background-color: blue;
+    width: 300px;
+    height: 300px;
+    /* position: relative; */
+  }
+  
+  .child {
+    background-color: red;
+  }
+  
+  #child-1 {
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    top: 50px;
+  }
+  
+  #child-2 {
+    position: absolute;
+    height: 300px;
+    width: 20px;
+    left: 50px;
+  }

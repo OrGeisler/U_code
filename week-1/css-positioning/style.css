@@ -1,0 +1,30 @@
+#parent {
+  background-color: red;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+.child {
+  width: 100px;
+  height: 100px;
+}
+#child1 {
+  position: absolute;
+  background-color: blue;
+}
+#child2 {
+  right: 0;
+  position: absolute;
+  background-color: green;
+}
+#child3 {
+  bottom: 0;
+  position: absolute;
+  background-color: yellow;
+}
+#child4 {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-color: purple;
+}

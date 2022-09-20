@@ -1,0 +1,9 @@
+#container{
+    background-color: #FDA7DF;
+    height: 100px;
+}
+#section{
+    background-color: #ED4C67;
+    height: 100px;
+    margin-left: calc(100% - 20px);
+}

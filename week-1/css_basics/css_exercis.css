@@ -1,0 +1,22 @@
+#container { 
+    background-color: rgba(128, 128, 128, 0.475);
+    box-shadow: 2px 2px rgba(211, 211, 211, 0.683);
+    display: inline-block;
+  }
+span {
+    height: 50px;
+    width: 50px;
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+  }
+#first {
+    background-color:rgba(0, 255, 187, 0.712);
+}
+#second {
+    background-color:rgba(255, 136, 0, 0.856);
+}
+.button {
+    background-color: rgba(0, 128, 0, 0.434);
+    border-color: rgba(0, 128, 0, 0.751);
+}

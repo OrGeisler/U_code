@@ -1,0 +1,11 @@
+.column{
+    width: 50%;
+    background-color: brown;
+  }
+
+  @media(max-width: 700px){
+    .column{
+      width: 100%;
+      background-color:aqua
+    }
+  }

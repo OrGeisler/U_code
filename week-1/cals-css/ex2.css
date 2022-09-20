@@ -1,0 +1,12 @@
+#container{
+    background-color: #FDA7DF;
+    height: 100px;
+    width: 40%;
+    display: inline-block;
+}
+.box{
+    display: inline-block;
+    border-style: solid;
+    height: 100%;
+    width: calc(100% / 3 - 10px);
+}

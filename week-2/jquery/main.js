@@ -1,0 +1,8 @@
+// $('h1').css("color","blue")
+// $('.red-div').css("color","red")
+// $("li:first-child").css("color","green")
+// $("li:last-child").css("color","pink")
+// $('#brown-div').css("color","brown")
+// console.log($("#div").data().barcode)
+// console.log($("#div").data().expirationdate)
+$('.box').css('background-color', 'red')
