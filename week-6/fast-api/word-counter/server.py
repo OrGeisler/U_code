@@ -67,6 +67,6 @@ def most_popular():
         c.update(i=word_count[i])
     most_popular = c.most_common(5)
     return {"text": f'{most_popular}'}
-
+##
 if __name__ == "__main__":
     uvicorn.run("server:app",host="0.0.0.0", port=8000,reload=True)
