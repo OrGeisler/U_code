@@ -1,0 +1,489 @@
+Movie object:
+
+title - string. The full name of the movie.
+plot - string. A short plot description of the movie.
+poster - string. A URL to the actor’s image
+budget - number. The movie’s budget in US dollars.
+revenue - number. The movie’s revenue up-to-date in US dollars.
+genres - string array. An array of strings representing the movie’s genres (e.g. Comedy, Drama, etc.)
+popularity - number. A float from 0 to 10 representing the movie’s popularity. 9.93 is a very popular movie, while 1.3 is an unknown movie.
+review - number. A float from 0 to 10 representing an average of the movie’s professional review.
+runtime - number. An integer of the movie’s runtime in minutes.
+actors- array. An array of actors
+
+Actor object:
+
+name - string. The full name of the actor
+bio - string. A short biography of the actor
+image - string. A URL to the actor’s image.
+birthday - string. A string representation of the actor’s birthday. For example November 13th 1980 will be “1980–13-11”
+deathday - string. A string representation of the actor’s death date. If alive value will be null.
+gender - number. 1 for female, 2 for male.
+popularity - number. A float from 0 to 10 representing the actor’s popularity. 9.93 is a very popular actor, while 1.3 is a novice known actor.
+movies - array. An array of movies.
+
+##################
+
+1) General Movie CRUD (show here examples of request response per endpoint):
+
+GET request:
+
+GET http://api.movieapp.com/movies/192 HTTP/1.1
+
+GET response:
+
+HTTP/1.1 200 OK
+
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+
+POST request:
+
+POST http://api.movieapp.com/movies HTTP/1.1
+
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+
+POST response:
+
+HTTP/1.1 201 Created
+Location: /movies/196
+
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+
+PUT request:
+
+PUT http://api.movieapp.com/movies HTTP/1.1
+
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+
+PUT response:
+
+HTTP/1.1 200 OK
+
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+
+DELETE request:
+
+DELETE http://api.movieapp.com/movies/192 HTTP/1.1
+
+DELETE response:
+
+HTTP/1.1 204 NO CONTENT
+
+2) General Actor CRUD (show here examples of request response per endpoint):
+
+GET request:
+
+GET http://api.movieapp.com/actors/192 HTTP/1.1
+
+GET response:
+
+HTTP/1.1 200 OK
+
+{
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+}
+
+POST request:
+
+POST http://api.movieapp.com/actors HTTP/1.1
+
+{
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+}
+
+POST response:
+
+HTTP/1.1 201 Created
+Location: /actors/283
+
+{
+  "id": 283, 
+  "name": "Brad Pitt", 
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18", 
+  "deathday": null, 
+  "gender": 2, 
+  "popularity": 9.93
+}
+
+PUT request:
+
+PUT http://api.movieapp.com/actors HTTP/1.1
+
+{
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+}
+
+PUT response:
+
+HTTP/1.1 200 OK
+
+{
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+}
+
+DELETE request:
+
+DELETE http://api.movieapp.com/actors/192 HTTP/1.1
+
+DELETE response:
+
+HTTP/1.1 204 NO CONTENT
+
+3) Get actors of a specific movie.
+
+GET request:
+
+GET http://api.movieapp.com/movies/192/actors?limit=20&offset=0 HTTP/1.1
+
+GET response:
+
+HTTP/1.1 200 OK
+
+[
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+  },
+  .....
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+ }
+]
+
+4) Add an actor to a specific movie:
+
+POST request:
+
+POST http://api.movieapp.com/movies/192/actors HTTP/1.1
+
+{
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+}
+
+POST response:
+
+HTTP/1.1 200 OK
+
+{
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+}
+
+5) Remove an actor from a specific movie:
+
+DELETE request:
+
+DELETE http://api.movieapp.com/movies/192/actors HTTP/1.1
+
+DELETE response:
+
+HTTP/1.1 204 NO CONTENT
+
+6) Get the top 3 stars (most popular actors) of a specific movie:
+
+GET request:
+
+GET http://api.movieapp.com/movies/192/actors?sort_by=desc(actors)?limit=3 HTTP/1.1
+
+GET response:
+
+HTTP/1.1 200 OK
+
+[
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+  },
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+  },
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+ }
+]
+
+7) Update a specific movie’s revenue:
+
+PATCH request:
+
+PATCH http://api.movieapp.com/movies/192 HTTP/1.1
+
+{
+  "revenue": 
+}
+
+PATCH response:
+
+HTTP/1.1 200 OK
+
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+
+8) Get the top 10 action movies:
+
+GET request:
+
+GET http://api.movieapp.com/movies?sort_by=desc(popularity)?limit=10 HTTP/1.1
+
+GET response:
+
+HTTP/1.1 200 OK
+
+[
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+},
+....
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+]
+
+9) Get the drama movies of a specific actor:
+
+GET request:
+
+GET http://api.movieapp.com/movies?genres=drama/actors/123 HTTP/1.1
+
+GET response:
+
+HTTP/1.1 200 OK
+
+[
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+},
+....
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+]
+
+10. Get the top 3 most popular movies of a specific actor:
+
+GET request:
+
+GET http://api.movieapp.com/movies?sort_by=desc(popularity)?limit=3/actors/123 HTTP/1.1
+
+GET response:
+
+HTTP/1.1 200 OK
+
+[
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+},
+....
+{
+  "title": ,
+  "plot": , 
+  "poster":,
+  "budget": ,
+  "revenue": , 
+  "genres": ,
+  "popularity":,
+  "review":,
+  "runtime":,
+}
+]
+
+11. Create 5 actors in a single request:
+
+POST request:
+
+POST http://api.movieapp.com/actors HTTP/1.1
+
+[
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+  },
+  .....
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+ }
+]
+
+POST response:
+
+HTTP/1.1 201 Created
+[
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+  },
+  .....
+  {
+  "name": "Brad Pitt",
+  "bio": "William Bradley Pitt (born December 18, 1963) is…", 
+  "birthday": "1963-12-18",
+  "deathday": null,
+  "gender": 2, 
+  "popularity": 9.93
+ }
+]
